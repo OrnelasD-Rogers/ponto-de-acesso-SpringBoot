@@ -1,5 +1,6 @@
 package com.dio.pontodeacesso.application.controller;
 
+import com.dio.pontodeacesso.application.controllerapi.JornadaTrabalhoApi;
 import com.dio.pontodeacesso.application.assembler.JornadaTrabalhoAssembler;
 import com.dio.pontodeacesso.application.assembler.JornadaTrabalhoDesassembler;
 import com.dio.pontodeacesso.application.model.JornadaTrabalhoModel;
@@ -7,56 +8,43 @@ import com.dio.pontodeacesso.application.model.input.JornadaTrabalhoInputModel;
 import com.dio.pontodeacesso.domain.model.JornadaTrabalho;
 import com.dio.pontodeacesso.domain.service.JornadaService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.RestController;
 
-import javax.validation.Valid;
 import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/jornada")
-public class JornadaTrabalhoController {
-
+public class JornadaTrabalhoController implements JornadaTrabalhoApi {
 
     private final JornadaService jornadaService;
     private final JornadaTrabalhoAssembler assembler;
     private final JornadaTrabalhoDesassembler desassembler;
 
+    @Override
+    public List<JornadaTrabalhoModel> findAll() {
+        return assembler.toCollectionModel(jornadaService.findAll());
+    }
 
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping
-    public JornadaTrabalhoModel create(@Valid @RequestBody JornadaTrabalhoInputModel jornadaTrabalhoInputModel) {
+    @Override
+    public JornadaTrabalhoModel findById(Long idJornada) {
+        return assembler.toModel(jornadaService.findById(idJornada));
+    }
 
+    @Override
+    public JornadaTrabalhoModel create(JornadaTrabalhoInputModel jornadaTrabalhoInputModel) {
         JornadaTrabalho jornadaTrabalho = desassembler.toDomainModel(jornadaTrabalhoInputModel);
         return assembler.toModel(jornadaService.save(jornadaTrabalho));
     }
 
-    @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/{idJornada}")
-    public JornadaTrabalhoModel getById(@PathVariable Long idJornada) {
-        return assembler.toModel(jornadaService.findById(idJornada));
-    }
-
-    @ResponseStatus(HttpStatus.OK)
-    @GetMapping
-    public List<JornadaTrabalhoModel> getAll() {
-        return assembler.toCollectionModel(jornadaService.findAll());
-    }
-
-
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/{idJornada}")
-    public void delete(@PathVariable Long idJornada) {
-        jornadaService.delete(idJornada);
-    }
-
-    @PutMapping("/{idJornada}")
-    public JornadaTrabalhoModel update(@PathVariable long idJornada,
-                                       @Valid @RequestBody JornadaTrabalhoInputModel jornadaTrabalhoInputModel) {
+    @Override
+    public JornadaTrabalhoModel update(Long idJornada, JornadaTrabalhoInputModel jornadaTrabalhoInputModel) {
         JornadaTrabalho jornadaTrabalhoAtual = jornadaService.findById(idJornada);
         desassembler.copyToDomainModel(jornadaTrabalhoInputModel,jornadaTrabalhoAtual);
         return assembler.toModel(jornadaService.save(jornadaTrabalhoAtual));
     }
 
+    @Override
+    public void delete(Long idJornada) {
+        jornadaService.delete(idJornada);
+    }
 }
