@@ -32,9 +32,9 @@ public class Localidade {
     @Builder
     public static class LocalidadeId implements Serializable {
 
-        private long id;
+        private Long id;
 
-        private long id_nivelAcesso;
+        private Long id_nivelAcesso;
 
     }
 }

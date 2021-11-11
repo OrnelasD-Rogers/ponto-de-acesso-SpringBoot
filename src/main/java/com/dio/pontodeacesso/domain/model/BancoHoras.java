@@ -40,11 +40,11 @@ public class BancoHoras {
     @Embeddable
     public static class BancoHorasId implements Serializable {
 
-        private long id_bancoHoras;
+        private Long id_bancoHoras;
 
-        private long id_movimentacao;
+        private Long id_movimentacao;
 
-        private long id_usuario;
+        private Long id_usuario;
 
 
     }

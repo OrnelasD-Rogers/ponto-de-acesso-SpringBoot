@@ -16,7 +16,7 @@ public class Ocorrencia {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_ocorrencia;
+    private Long id_ocorrencia;
 
     private String nome;
 

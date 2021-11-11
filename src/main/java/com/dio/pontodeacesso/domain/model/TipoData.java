@@ -13,6 +13,7 @@ import javax.persistence.Id;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
+@EqualsAndHashCode
 @Builder
 @Entity
 public class TipoData {

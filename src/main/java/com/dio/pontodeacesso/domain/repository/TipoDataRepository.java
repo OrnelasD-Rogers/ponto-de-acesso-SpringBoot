@@ -9,5 +9,5 @@ import java.util.List;
 @Repository
 public interface TipoDataRepository extends JpaRepository<TipoData, Long> {
 
-    public List<TipoData> findByDescricao(String descricao);
+    List<TipoData> findByDescricao(String descricao);
 }

@@ -45,9 +45,9 @@ public class Movimentacao {
     @Builder
     public static class MovimentacaoId implements Serializable {
 
-        private long id_movimentacao;
+        private Long id_movimentacao;
 
-        private long id_usuario;
+        private Long id_usuario;
 
 
     }

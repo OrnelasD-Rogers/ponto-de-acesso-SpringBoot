@@ -15,14 +15,15 @@ import java.util.List;
 public class NivelAcesso {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_nivelAcesso;
+    private Long id_nivelAcesso;
 
     private String descricao;
 
-    @OneToMany(mappedBy = "nivelAcesso", cascade = CascadeType.ALL)
-    private List<Localidade> localidades;
+    @Column(insertable = false, updatable = false)
+    @OneToMany(mappedBy = "nivelAcesso")
+    private List<Localidade> localidade;
 
-    @OneToMany(mappedBy = "nivelAcesso", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "nivelAcesso")
     private List<Usuario> usuarios;
 
 }

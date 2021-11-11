@@ -17,7 +17,7 @@ public class Usuario {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private long id_usuario;
+    private Long id_usuario;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "id_cat_usuario")
