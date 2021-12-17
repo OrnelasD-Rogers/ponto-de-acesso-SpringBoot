@@ -18,15 +18,12 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@Validated
 @Tag(name = "Movimentacao", description = "Movimentacao do ponto de acesso")
-@RequestMapping("/movimentacao")
 public interface MovimentacaoApi {
 
     ////////////// findAll
 
-    @GetMapping
-    @ResponseStatus(code = HttpStatus.OK)
+
     @Operation(summary = "Lista todas as movimentações",tags = {"movimentacao"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -35,8 +32,7 @@ public interface MovimentacaoApi {
 
     ////////////// findById
 
-    @GetMapping("/{idMovimento}-{idUsuario}")
-    @ResponseStatus(HttpStatus.OK)
+
     @Operation(summary = "Procura uma movimentacao pelo seu id",tags = {"movimentacao"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -51,8 +47,7 @@ public interface MovimentacaoApi {
 
     ////////////// insert
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
+
     @Operation(summary = "Adiciona uma nova movimentacao",tags = {"movimentacao"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Inserção realizada com sucesso"
@@ -66,8 +61,7 @@ public interface MovimentacaoApi {
 
     ////////////// update
 
-    @PutMapping("/{idMovimento}-{idUsuario}")
-    @ResponseStatus(HttpStatus.OK)
+
     @Operation(summary = "Atualiza uma movimentacao",tags = {"movimentacao"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Atualização realizada com sucesso"
@@ -84,8 +78,7 @@ public interface MovimentacaoApi {
 
     ////////////// delete
 
-    @DeleteMapping("/{idMovimento}-{idUsuario}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+
     @Operation(summary = "Exclui uma movimentacao",tags = {"movimentacao"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="204", description = "Exclusão realizada com sucesso"),

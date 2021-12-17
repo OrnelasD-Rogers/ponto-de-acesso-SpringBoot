@@ -9,12 +9,14 @@ import java.io.Serializable;
 
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 @EqualsAndHashCode
 public class LocalidadeInputModel implements Serializable{
 
     @Valid
+    @NotNull
     private LocalidadeId localidadeId;
 
     @NotBlank

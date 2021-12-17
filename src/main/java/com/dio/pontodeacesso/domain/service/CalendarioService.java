@@ -4,7 +4,7 @@ package com.dio.pontodeacesso.domain.service;
 import com.dio.pontodeacesso.domain.exception.CalendarioNaoEncontradoException;
 import com.dio.pontodeacesso.domain.exception.EntidadeEmUsoException;
 import com.dio.pontodeacesso.domain.model.Calendario;
-import com.dio.pontodeacesso.domain.repository.CalendarioRepository;
+import com.dio.pontodeacesso.repository.CalendarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -26,11 +26,11 @@ public class CalendarioService {
         return calendarioRepository.save(calendario);
     }
 
-    public List<Calendario> findAllCalendario() {
+    public List<Calendario> findAll() {
         return calendarioRepository.findAll();
     }
 
-    public Calendario findCalendarioById(Long idCalendario) {
+    public Calendario findById(Long idCalendario) {
         return calendarioRepository.findById(idCalendario).orElseThrow(
                 () -> new CalendarioNaoEncontradoException(idCalendario)
         );
@@ -42,7 +42,7 @@ public class CalendarioService {
     }
 
     @Transactional
-    public void deleteCalendario(Long id) {
+    public void delete(Long id) {
         try {
             calendarioRepository.deleteById(id);
             calendarioRepository.flush();

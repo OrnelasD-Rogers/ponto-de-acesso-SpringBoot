@@ -3,7 +3,7 @@ package com.dio.pontodeacesso.domain.service;
 import com.dio.pontodeacesso.domain.exception.EntidadeEmUsoException;
 import com.dio.pontodeacesso.domain.exception.OcorrenciaNaoEncontradaException;
 import com.dio.pontodeacesso.domain.model.Ocorrencia;
-import com.dio.pontodeacesso.domain.repository.OcorrenciaRepository;
+import com.dio.pontodeacesso.repository.OcorrenciaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;

@@ -4,7 +4,7 @@ import com.dio.pontodeacesso.domain.exception.BancoHorasNaoEncontrado;
 import com.dio.pontodeacesso.domain.exception.EntidadeEmUsoException;
 import com.dio.pontodeacesso.domain.model.BancoHoras;
 import com.dio.pontodeacesso.domain.model.Movimentacao;
-import com.dio.pontodeacesso.domain.repository.BancoHorasRepository;
+import com.dio.pontodeacesso.repository.BancoHorasRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -21,7 +21,7 @@ public class BancoHorasService {
     private final MovimentacaoService movimentacaoService;
 
     @Transactional
-    public void deleteBancoHoras(BancoHoras.BancoHorasId id) {
+    public void delete(BancoHoras.BancoHorasId id) {
         try {
             bancoHorasRepository.deleteById(id);
             bancoHorasRepository.flush();
@@ -37,7 +37,7 @@ public class BancoHorasService {
     }
 
     @Transactional
-    public BancoHoras saveBancoHoras(BancoHoras bancoHoras) {
+    public BancoHoras save(BancoHoras bancoHoras) {
         Movimentacao.MovimentacaoId movimentacaoId = Movimentacao.MovimentacaoId.builder()
                 .id_movimentacao(bancoHoras.getIdBancoHoras().getId_movimentacao())
                 .id_usuario(bancoHoras.getIdBancoHoras().getId_usuario()).build();

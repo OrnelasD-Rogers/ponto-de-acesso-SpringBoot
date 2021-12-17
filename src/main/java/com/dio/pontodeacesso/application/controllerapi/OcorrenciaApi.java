@@ -18,15 +18,14 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@Validated
+
 @Tag(name = "Ocorrencia", description = "Tipo de ocorrencia do ponto de acesso")
-@RequestMapping("/ocorrencia")
+
 public interface OcorrenciaApi {
 
     ////////////// findAll
 
-    @GetMapping
-    @ResponseStatus(code = HttpStatus.OK)
+
     @Operation(summary = "Lista todos as ocorrencias",tags = {"ocorrencia"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -35,8 +34,7 @@ public interface OcorrenciaApi {
 
     ////////////// findById
 
-    @GetMapping("/{idOcorrencia}")
-    @ResponseStatus(HttpStatus.OK)
+
     @Operation(summary = "Procura uma ocorrencia pelo seu id",tags = {"ocorrencia"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -49,8 +47,7 @@ public interface OcorrenciaApi {
 
     ////////////// insert
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
+
     @Operation(summary = "Adiciona uma nova ocorrencia",tags = {"ocorrencia"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Inserção realizada com sucesso"
@@ -64,8 +61,7 @@ public interface OcorrenciaApi {
 
     ////////////// update
 
-    @PutMapping("/{idOcorrencia}")
-    @ResponseStatus(HttpStatus.OK)
+
     @Operation(summary = "Atualiza uma ocorrencia",tags = {"ocorrencia"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Atualização realizada com sucesso"
@@ -82,8 +78,7 @@ public interface OcorrenciaApi {
 
     ////////////// delete
 
-    @DeleteMapping("/{idOcorrencia}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+
     @Operation(summary = "Exclui uma ocorrencia",tags = {"ocorrencia"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="204", description = "Exclusão realizada com sucesso"),

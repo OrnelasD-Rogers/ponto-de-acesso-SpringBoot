@@ -18,15 +18,12 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@Validated
 @Tag(name = "Localidade", description = "Localidade do ponto de acesso")
-@RequestMapping("/localidade")
 public interface LocalidadeApi {
 
     ////////////// findAll
 
-    @GetMapping
-    @ResponseStatus(code = HttpStatus.OK)
+
     @Operation(summary = "Lista todos as localidades",tags = {"localidade"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -35,8 +32,6 @@ public interface LocalidadeApi {
 
     ////////////// findById
 
-    @GetMapping("/{idLocalidade}-{idNivelAcesso}")
-    @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Procura uma localidade pelo seu id",tags = {"localidade"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -51,8 +46,7 @@ public interface LocalidadeApi {
 
     ////////////// insert
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
+
     @Operation(summary = "Adiciona uma nova localidade",tags = {"localidade"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Inserção realizada com sucesso"
@@ -66,8 +60,7 @@ public interface LocalidadeApi {
 
     ////////////// update
 
-    @PutMapping("/{idLocalidade}-{idNivelAcesso}")
-    @ResponseStatus(HttpStatus.OK)
+
     @Operation(summary = "Atualiza uma movimentacao",tags = {"localidade"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Atualização realizada com sucesso"
@@ -86,8 +79,7 @@ public interface LocalidadeApi {
 
     ////////////// delete
 
-    @DeleteMapping("/{idLocalidade}-{idNivelAcesso}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+
     @Operation(summary = "Exclui uma localidade",tags = {"localidade"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="204", description = "Exclusão realizada com sucesso"),

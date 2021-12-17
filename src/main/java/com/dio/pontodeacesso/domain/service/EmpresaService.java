@@ -1,9 +1,9 @@
 package com.dio.pontodeacesso.domain.service;
 
-import com.dio.pontodeacesso.domain.exception.EmpresaNaoEncontrada;
+import com.dio.pontodeacesso.domain.exception.EmpresaNaoEncontradaException;
 import com.dio.pontodeacesso.domain.exception.EntidadeEmUsoException;
 import com.dio.pontodeacesso.domain.model.Empresa;
-import com.dio.pontodeacesso.domain.repository.EmpresaRepository;
+import com.dio.pontodeacesso.repository.EmpresaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -25,7 +25,7 @@ public class EmpresaService {
 
     public Empresa findById(Long id_empresa) {
         return  empresaRepository.findById(id_empresa).orElseThrow(
-                ()-> new EmpresaNaoEncontrada(id_empresa)
+                ()-> new EmpresaNaoEncontradaException(id_empresa)
         );
     }
 
@@ -35,7 +35,7 @@ public class EmpresaService {
             empresaRepository.deleteById(id);
             empresaRepository.flush();
         } catch (EmptyResultDataAccessException e) {
-            throw new EmpresaNaoEncontrada(id);
+            throw new EmpresaNaoEncontradaException(id);
         } catch (DataIntegrityViolationException e){
             throw new EntidadeEmUsoException(
                     String.format("A Empresa com o id %d está em uso e não pode ser excluida", id));

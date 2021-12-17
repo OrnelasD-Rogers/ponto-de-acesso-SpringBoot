@@ -2,27 +2,40 @@
 
 ### O QUE É
 
-Uma API Rest para fazer controle de ponto e acesso dos usuários de uma empresa. 
+Uma API Rest para fazer controle de ponto e acesso dos usuários para empresas. 
 
 ### OBJETIVO
 
-Dar os primeiros passos com Spring Boot no desenvolvimento de API's e praticar os conceitos das ferramentas.
-
-### INSTALAÇÃO LOCAL
-
-• Instale o MySql
-
-• Em seu servidor local baixe o projeto usando `git clone`
+Demonstrar conceitos de API Rest, SpringBoot e arquitetura de software.
 
 ### BIBLIOTECAS DO PROJETO
 
-- Usamos o [Swagger](https://swagger.io) para fazer a documentação da API;
-- Banco de dados MySql e o ORM [Hibernate](https://hibernate.org) para a persistência de dados;
-- Utilizamos o [Lombok](https://projectlombok.org) para deixar o código mais limpo e menos verboso;
+- Foi utilizado o [Swagger](https://swagger.io)(SpringDoc openapi-ui) para fazer a documentação da API;
+- Para persistência de dados foi utilizado o MySql;
+- Foi utilizado o [Hibernate](https://hibernate.org) como implementação para o JPA;
+- [Lombok](https://projectlombok.org) para diminuir o Boilerplate code;
+- Utilizado o [ModelMapper](http://modelmapper.org) para facilitar a aplicação do padrão **DTO**;
+- Versionamento do banco de dados feito através do [Flyway](https://flywaydb.org);
+
+### VALIDACOES
+
+Para a validação de dados foi utilizado a especificação [Jakarta Bean Validation](https://beanvalidation.org/2.0/) com a implementação do [Hibernate Validator](http://hibernate.org/validator/);
+
+### TRATAMENTO DE ERROS
+
+Os erros foram tratados utilizando o **ControllerAdvice** do próprio Spring Framework, com a criação de exceptions e mensagens personalizadas para cada tipo de erro. Foi utilizado como norma o **Problem Details for HTTP Apis rfc7807**;
 
 ### BANCO DE DADOS
 
-Foi utilizado o MySql 8.0 para esta aplicação mas ela também tem suporte ao banco H2 que já está pré configurado.
+Foi utilizado o MySql 8.0 para esta aplicação mas também é suportado o banco H2 qual está pré configurado.
+
+### TESTES
+
+Os testes foram realizados utilizando [JUnit 5](https://junit.org/junit5/) e [Mockito](https://site.mockito.org). Os tipos de teste deste projeto são:
+
+- Testes de Repositório
+- Teste de Controlador
+- Teste de Integração(A caminho)
 
 ------
 

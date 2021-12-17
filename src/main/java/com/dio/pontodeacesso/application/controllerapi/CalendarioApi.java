@@ -17,15 +17,12 @@ import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.List;
 
-@Validated
 @Tag(name = "Calendario", description = "Um tipo de calendario")
-@RequestMapping("/calendario")
 public interface CalendarioApi {
 
     ////////////// findAll
 
-    @GetMapping
-    @ResponseStatus(code = HttpStatus.OK)
+
     @Operation(summary = "Lista todos os calendario",tags = {"calendario"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -34,8 +31,7 @@ public interface CalendarioApi {
 
     ////////////// findById
 
-    @GetMapping("/{idCalendario}")
-    @ResponseStatus(HttpStatus.OK)
+
     @Operation(summary = "Procura um calendario pelo seu id",tags = {"calendario"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -47,8 +43,7 @@ public interface CalendarioApi {
 
     ////////////// insert
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
+
     @Operation(summary = "Adiciona um novo calendario",tags = {"calendario"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Inserção realizada com sucesso"
@@ -61,8 +56,7 @@ public interface CalendarioApi {
 
     ////////////// update
 
-    @PutMapping("/{idCalendario}")
-    @ResponseStatus(HttpStatus.OK)
+
     @Operation(summary = "Atualiza um calendario",tags = {"calendario"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Atualização realizada com sucesso"
@@ -78,8 +72,7 @@ public interface CalendarioApi {
 
     ////////////// delete
 
-    @DeleteMapping("/{idCalendario}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+
     @Operation(summary = "Exclui um calendario",tags = {"calendario"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="204", description = "Exclusão realizada com sucesso"),

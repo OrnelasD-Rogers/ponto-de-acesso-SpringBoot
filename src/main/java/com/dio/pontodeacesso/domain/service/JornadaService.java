@@ -3,7 +3,7 @@ package com.dio.pontodeacesso.domain.service;
 import com.dio.pontodeacesso.domain.exception.EntidadeEmUsoException;
 import com.dio.pontodeacesso.domain.exception.JornadaTrabalhoNaoEncontradaException;
 import com.dio.pontodeacesso.domain.model.JornadaTrabalho;
-import com.dio.pontodeacesso.domain.repository.JornadaRepository;
+import com.dio.pontodeacesso.repository.JornadaRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;

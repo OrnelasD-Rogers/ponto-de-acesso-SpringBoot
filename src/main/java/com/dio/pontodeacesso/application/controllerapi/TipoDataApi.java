@@ -18,15 +18,13 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@Validated
+
 @Tag(name = "Tipo Data", description = "Tipo de data do ponto de acesso")
-@RequestMapping("/tipo-data")
 public interface TipoDataApi {
 
     ////////////// findAll
 
-    @GetMapping
-    @ResponseStatus(code = HttpStatus.OK)
+
     @Operation(summary = "Lista todos os tipo-data",tags = {"tipo-data"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -35,8 +33,7 @@ public interface TipoDataApi {
 
     ////////////// findById
 
-    @GetMapping("/{idTipoData}")
-    @ResponseStatus(HttpStatus.OK)
+
     @Operation(summary = "Procura um tipo-data pelo seu id",tags = {"tipo-data"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -49,8 +46,7 @@ public interface TipoDataApi {
 
     ////////////// insert
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
+
     @Operation(summary = "Adiciona um novo tipo-data",tags = {"tipo-data"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Inserção realizada com sucesso"
@@ -59,13 +55,12 @@ public interface TipoDataApi {
     TipoDataModel create(
             @Parameter(description = "tipo-data a ser adicionado",
             required = true, schema = @Schema(implementation = TipoDataInputModel.class))
-            @Valid @RequestBody TipoDataInputModel tipoData
+            @Valid @RequestBody TipoDataInputModel tipoDataInputModel
     );
 
     ////////////// update
 
-    @PutMapping("/{idTipoData}")
-    @ResponseStatus(HttpStatus.OK)
+
     @Operation(summary = "Atualiza um tipo-data",tags = {"tipo-data"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Atualização realizada com sucesso"
@@ -82,8 +77,7 @@ public interface TipoDataApi {
 
     ////////////// delete
 
-    @DeleteMapping("/{idTipoData}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+
     @Operation(summary = "Exclui um tipo-data",tags = {"tipo-data"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="204", description = "Exclusão realizada com sucesso"),

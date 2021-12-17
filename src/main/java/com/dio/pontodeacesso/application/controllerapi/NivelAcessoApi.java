@@ -18,15 +18,12 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@Validated
 @Tag(name = "Nivel Acesso", description = "Nível de acesso do ponto")
-@RequestMapping("/nivel-acesso")
 public interface NivelAcessoApi {
 
     ////////////// findAll
 
-    @GetMapping
-    @ResponseStatus(code = HttpStatus.OK)
+
     @Operation(summary = "Lista todos os níveis de acesso",tags = {"nivel-acesso"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -35,8 +32,7 @@ public interface NivelAcessoApi {
 
     ////////////// findById
 
-    @GetMapping("/{idNivelAcesso}")
-    @ResponseStatus(HttpStatus.OK)
+
     @Operation(summary = "Procura um nível de acesso pelo seu id",tags = {"nivel-acesso"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -49,8 +45,7 @@ public interface NivelAcessoApi {
 
     ////////////// insert
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
+
     @Operation(summary = "Adiciona um novo nível de acesso",tags = {"nivel-acesso"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Inserção realizada com sucesso"
@@ -64,8 +59,7 @@ public interface NivelAcessoApi {
 
     ////////////// update
 
-    @PutMapping("/{idNivelAcesso}")
-    @ResponseStatus(HttpStatus.OK)
+
     @Operation(summary = "Atualiza um nível de acesso",tags = {"nivel-acesso"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Atualização realizada com sucesso"
@@ -82,8 +76,7 @@ public interface NivelAcessoApi {
 
     ////////////// delete
 
-    @DeleteMapping("/{idNivelAcesso}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+
     @Operation(summary = "Exclui um nível de acesso",tags = {"nivel-acesso"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="204", description = "Exclusão realizada com sucesso"),

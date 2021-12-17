@@ -3,7 +3,7 @@ package com.dio.pontodeacesso.domain.service;
 import com.dio.pontodeacesso.domain.exception.EntidadeEmUsoException;
 import com.dio.pontodeacesso.domain.exception.MovimentacaoNaoEncontradaException;
 import com.dio.pontodeacesso.domain.model.Movimentacao;
-import com.dio.pontodeacesso.domain.repository.MovimentacaoRepository;
+import com.dio.pontodeacesso.repository.MovimentacaoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -25,7 +25,7 @@ public class MovimentacaoService {
     @Transactional
     public Movimentacao save(Movimentacao movimentacao) {
         ocorrenciaService.findById(movimentacao.getOcorrencia().getId_ocorrencia());
-        calendarioService.findCalendarioById(movimentacao.getCalendario().getId_calendario());
+        calendarioService.findById(movimentacao.getCalendario().getId_calendario());
         movimentacao.setUsuario(usuarioService.findById(movimentacao.getMovimentacaoId().getId_usuario()));
         return  movimentacaoRepository.save(movimentacao);
     }

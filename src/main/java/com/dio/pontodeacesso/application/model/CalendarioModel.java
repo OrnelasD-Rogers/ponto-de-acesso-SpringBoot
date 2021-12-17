@@ -1,13 +1,15 @@
 package com.dio.pontodeacesso.application.model;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.time.OffsetDateTime;
 import java.util.List;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter @Setter
+@Builder
 public class CalendarioModel {
 
     private Long id_calendario;

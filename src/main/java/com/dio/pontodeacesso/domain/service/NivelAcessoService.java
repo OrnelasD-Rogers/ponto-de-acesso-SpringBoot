@@ -3,7 +3,7 @@ package com.dio.pontodeacesso.domain.service;
 import com.dio.pontodeacesso.domain.exception.EntidadeEmUsoException;
 import com.dio.pontodeacesso.domain.exception.NivelDeAcessoNaoEncontradoException;
 import com.dio.pontodeacesso.domain.model.NivelAcesso;
-import com.dio.pontodeacesso.domain.repository.NivelAcessoRepository;
+import com.dio.pontodeacesso.repository.NivelAcessoRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;
@@ -35,7 +35,7 @@ public class NivelAcessoService {
     }
 
     @Transactional
-    public void delete(long id_nivelAcesso) {
+    public void delete(Long id_nivelAcesso) {
         try {
             nivelAcessoRepository.deleteById(id_nivelAcesso);
             nivelAcessoRepository.flush();

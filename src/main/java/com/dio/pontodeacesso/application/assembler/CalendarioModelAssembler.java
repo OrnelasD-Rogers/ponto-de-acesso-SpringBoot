@@ -19,7 +19,7 @@ public class CalendarioModelAssembler {
         return mapper.map(calendario, CalendarioModel.class);
     }
 
-    public List<CalendarioModel> toCollection(List<Calendario> calendarios){
+    public List<CalendarioModel> toCollectionModel(List<Calendario> calendarios){
         return calendarios.stream()
                 .map(this::toModel)
                 .collect(Collectors.toList());

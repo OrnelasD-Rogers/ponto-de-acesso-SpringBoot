@@ -18,16 +18,12 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@Validated
 @Tag(name = "Jornada de Trabalho", description = "Jornada de trabalho do usuario do ponto de acesso")
-@RequestMapping("/jornada")
 public interface JornadaTrabalhoApi {
 
 
 ////////////// findAll
 
-    @GetMapping
-    @ResponseStatus(code = HttpStatus.OK)
     @Operation(summary = "Lista todas as jornada-trabalho",tags = {"jornada-trabalho"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -36,8 +32,6 @@ public interface JornadaTrabalhoApi {
 
     ////////////// findById
 
-    @GetMapping("/{idJornada}")
-    @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Procura uma jornada-trabalho pelo seu id",tags = {"jornada-trabalho"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -50,8 +44,6 @@ public interface JornadaTrabalhoApi {
 
     ////////////// insert
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Adiciona uma nova jornada-trabalho",tags = {"jornada-trabalho"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Inserção realizada com sucesso"
@@ -65,8 +57,6 @@ public interface JornadaTrabalhoApi {
 
     ////////////// update
 
-    @PutMapping("/{idJornada}")
-    @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Atualiza uma jornada-trabalho",tags = {"jornada-trabalho"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Atualização realizada com sucesso"
@@ -83,8 +73,6 @@ public interface JornadaTrabalhoApi {
 
 ////////////// delete
 
-    @DeleteMapping("/{idJornada}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "Exclui uma jornada-trabalho",tags = {"jornada-trabalho"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="204", description = "Exclusão realizada com sucesso"),

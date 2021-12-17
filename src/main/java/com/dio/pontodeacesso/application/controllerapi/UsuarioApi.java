@@ -10,23 +10,20 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.responses.ApiResponses;
 import io.swagger.v3.oas.annotations.tags.Tag;
-import org.springframework.http.HttpStatus;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@Validated
+
 @Tag(name = "Usuario", description = "Usuário do ponto de acesso")
-@RequestMapping("/usuario")
 public interface UsuarioApi {
 
     ////////////// findAll
 
-    @ResponseStatus(HttpStatus.OK)
-    @GetMapping
+
     @Operation(summary = "Lista todos os usuários",tags = {"usuario"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -35,8 +32,7 @@ public interface UsuarioApi {
 
     ////////////// findById
 
-    @ResponseStatus(HttpStatus.OK)
-    @GetMapping("/{idUsuario}")
+
     @Operation(summary = "Procura um usuario pelo seu id",tags = {"usuario"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -49,8 +45,7 @@ public interface UsuarioApi {
 
     ////////////// insert
 
-    @ResponseStatus(HttpStatus.CREATED)
-    @PostMapping
+
     @Operation(summary = "Adiciona um novo usuario",tags = {"usuario"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Inserção realizada com sucesso"
@@ -63,8 +58,7 @@ public interface UsuarioApi {
 
     ////////////// update
 
-    @ResponseStatus(HttpStatus.OK)
-    @PutMapping("/{idUsuario}")
+
     @Operation(summary = "Atualiza um usuário",tags = {"usuario"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Atualização realizada com sucesso"
@@ -81,8 +75,7 @@ public interface UsuarioApi {
 
     ////////////// delete
 
-    @ResponseStatus(HttpStatus.NO_CONTENT)
-    @DeleteMapping("/{idUsuario}")
+
     @Operation(summary = "Exclui um usuário",tags = {"usuario"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="204", description = "Exclusão realizada com sucesso"),

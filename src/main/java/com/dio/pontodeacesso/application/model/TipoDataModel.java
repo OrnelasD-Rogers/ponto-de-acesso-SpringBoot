@@ -1,9 +1,11 @@
 package com.dio.pontodeacesso.application.model;
 
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Getter @Setter
 public class TipoDataModel {
 

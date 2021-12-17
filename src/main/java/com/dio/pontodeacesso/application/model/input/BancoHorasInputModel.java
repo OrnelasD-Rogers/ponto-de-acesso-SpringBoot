@@ -11,10 +11,14 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter @Setter
+@Builder
 public class BancoHorasInputModel {
 
     @Valid
+    @NotNull
     private BancoHorasInputId idBancoHoras;
 
     @NotNull

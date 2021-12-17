@@ -9,7 +9,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
-
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Getter @Setter
 public class MovimentacaoInputModel {
 
@@ -22,8 +24,10 @@ public class MovimentacaoInputModel {
     @NotNull
     private BigDecimal periodo;
     @Valid
+    @NotNull
     private OcorrenciaIdInputModel ocorrencia;
     @Valid
+    @NotNull
     private CalendarioIdInputModel calendario;
 
     @Getter

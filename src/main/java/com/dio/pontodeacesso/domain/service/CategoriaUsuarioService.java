@@ -3,7 +3,7 @@ package com.dio.pontodeacesso.domain.service;
 import com.dio.pontodeacesso.domain.exception.CategoriaUsuarioNaoEncontrado;
 import com.dio.pontodeacesso.domain.exception.EntidadeEmUsoException;
 import com.dio.pontodeacesso.domain.model.CategoriaUsuario;
-import com.dio.pontodeacesso.domain.repository.CategoriaUsuarioRepository;
+import com.dio.pontodeacesso.repository.CategoriaUsuarioRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.dao.EmptyResultDataAccessException;

@@ -1,7 +1,6 @@
 package com.dio.pontodeacesso.application.model.input;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.validation.Valid;
 import javax.validation.constraints.NotBlank;
@@ -9,14 +8,14 @@ import javax.validation.constraints.NotNull;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter @Setter
 public class UsuarioInputModel {
 
     @Valid
     private CategoriaUsuarioIdInputModel categoriaUsuario;
-
-    @NotBlank
-    private String nome;
 
     @Valid
     private EmpresaIdInputModel empresa;
@@ -26,6 +25,9 @@ public class UsuarioInputModel {
 
     @Valid
     private JornadaTrabalhoIdInputModel jornadaTrabalho;
+
+    @NotBlank
+    private String nome;
 
     @NotNull
     private BigDecimal tolerancia;

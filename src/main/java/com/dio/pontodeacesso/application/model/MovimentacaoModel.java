@@ -7,6 +7,9 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Getter @Setter
 public class MovimentacaoModel {
 

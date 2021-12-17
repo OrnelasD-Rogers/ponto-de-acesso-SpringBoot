@@ -1,11 +1,13 @@
 package com.dio.pontodeacesso.application.model.input;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.validation.constraints.NotBlank;
 
 
+@AllArgsConstructor
+@NoArgsConstructor
+@Builder
 @Getter @Setter
 public class NivelAcessoInputModel {
 

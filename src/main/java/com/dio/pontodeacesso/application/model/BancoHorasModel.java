@@ -8,7 +8,10 @@ import java.io.Serializable;
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter @Setter
+@Builder
 public class BancoHorasModel {
 
     private BancoHorasId idBancoHoras;

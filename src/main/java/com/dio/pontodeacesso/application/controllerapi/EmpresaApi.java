@@ -18,15 +18,12 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@Validated
 @Tag(name = "Empresa", description = "Empresa do ponto de acesso")
-@RequestMapping("/empresa")
 public interface EmpresaApi {
 
     ////////////// findAll
 
-    @GetMapping
-    @ResponseStatus(code = HttpStatus.OK)
+
     @Operation(summary = "Lista todas as empresas",tags = {"empresa"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -35,8 +32,7 @@ public interface EmpresaApi {
 
     ////////////// findById
 
-    @GetMapping("/{idEmpresa}")
-    @ResponseStatus(HttpStatus.OK)
+
     @Operation(summary = "Procura uma empresa pelo seu id",tags = {"empresa"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -48,8 +44,7 @@ public interface EmpresaApi {
 
     ////////////// insert
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
+
     @Operation(summary = "Adiciona uma nova empresa",tags = {"empresa"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Inserção realizada com sucesso"
@@ -62,8 +57,7 @@ public interface EmpresaApi {
     );
 
 
-    @PutMapping("/{idEmpresa}")
-    @ResponseStatus(HttpStatus.OK)
+
     @Operation(summary = "Atualiza uma empresa",tags = {"empresa"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Atualização realizada com sucesso"
@@ -78,8 +72,7 @@ public interface EmpresaApi {
             @Valid @RequestBody EmpresaInputModel empresaInputModel
     );
 
-    @DeleteMapping("/{idEmpresa}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
+
     @Operation(summary = "Exclui uma empresa",tags = {"empresa"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="204", description = "Exclusão realizada com sucesso"),

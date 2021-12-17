@@ -1,10 +1,12 @@
 package com.dio.pontodeacesso.application.model.input;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import javax.validation.constraints.NotNull;
 
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter @Setter
 public class CategoriaUsuarioIdInputModel {
 

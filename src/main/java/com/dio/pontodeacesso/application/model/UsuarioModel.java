@@ -1,11 +1,13 @@
 package com.dio.pontodeacesso.application.model;
 
-import lombok.Getter;
-import lombok.Setter;
+import lombok.*;
 
 import java.math.BigDecimal;
 import java.time.OffsetDateTime;
 
+@Builder
+@AllArgsConstructor
+@NoArgsConstructor
 @Getter @Setter
 public class UsuarioModel {
 

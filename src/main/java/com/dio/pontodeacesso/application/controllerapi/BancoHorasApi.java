@@ -18,15 +18,11 @@ import javax.validation.Valid;
 import javax.validation.constraints.NotNull;
 import java.util.List;
 
-@Validated
 @Tag(name = "Banco Horas", description = "Banco de horas do usuario")
-@RequestMapping("/banco-horas")
 public interface BancoHorasApi {
 
     ////////////// findAll
 
-    @GetMapping
-    @ResponseStatus(code = HttpStatus.OK)
     @Operation(summary = "Lista todos os banco-horas",tags = {"banco-horas"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -36,8 +32,6 @@ public interface BancoHorasApi {
 
     ////////////// findById
 
-    @GetMapping("/{idBancoHoras}-{idMovimento}-{idUsuario}")
-    @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Procura um banco-horas pelo seu id",tags = {"banco-horas"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Operação realizada com sucesso"
@@ -52,8 +46,6 @@ public interface BancoHorasApi {
             @PathVariable @NotNull Long idUsuario);
     ////////////// insert
 
-    @PostMapping
-    @ResponseStatus(HttpStatus.CREATED)
     @Operation(summary = "Adiciona um novo banco-horas",tags = {"banco-horas"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Inserção realizada com sucesso"
@@ -66,8 +58,6 @@ public interface BancoHorasApi {
 
     ////////////// update
 
-    @PutMapping("/{idBancoHoras}-{idMovimento}-{idUsuario}")
-    @ResponseStatus(HttpStatus.OK)
     @Operation(summary = "Atualiza um banco-horas",tags = {"banco-horas"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="200", description = "Atualização realizada com sucesso"
@@ -87,8 +77,6 @@ public interface BancoHorasApi {
 
     ////////////// delete
 
-    @DeleteMapping("/{idTipoData}")
-    @ResponseStatus(HttpStatus.NO_CONTENT)
     @Operation(summary = "Exclui um banco-horas",tags = {"banco-horas"})
     @ApiResponses(value = {
             @ApiResponse(responseCode="204", description = "Exclusão realizada com sucesso"),
