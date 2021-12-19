@@ -11,7 +11,7 @@ Demonstrar conceitos de API Rest, SpringBoot e arquitetura de software.
 ### BIBLIOTECAS DO PROJETO
 
 - Foi utilizado o [Swagger](https://swagger.io)(SpringDoc openapi-ui) para fazer a documentação da API;
-- Para persistência de dados foi utilizado o MySql;
+- Para persistência de dados foi utilizado o SGBD MySql;
 - Foi utilizado o [Hibernate](https://hibernate.org) como implementação para o JPA;
 - [Lombok](https://projectlombok.org) para diminuir o Boilerplate code;
 - Utilizado o [ModelMapper](http://modelmapper.org) para facilitar a aplicação do padrão **DTO**;
